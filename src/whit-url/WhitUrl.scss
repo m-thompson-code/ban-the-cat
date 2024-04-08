@@ -1,0 +1,53 @@
+.whit-url-image {
+    user-select: none;
+    pointer-events: none;
+    z-index: 199;
+    position: fixed;
+    bottom: -406px;
+    right: -181px;
+    scale: 0.75;
+    transition: 400ms;
+}
+.whit-url-image.active {
+    bottom: -142px;
+}
+
+.whit-url-anchor {
+    margin: 32px;
+    position: fixed;
+    opacity: 0.3;
+    font-size: 72px;
+    bottom: 0;
+    right: 0;
+    color: blueviolet;
+    z-index: 200;
+    transition: 300ms;
+}
+.whit-url-anchor:visited {
+    color: blueviolet;
+}
+.whit-url-anchor:hover,
+.whit-url-anchor:active,
+.whit-url-anchor:focus,
+.whit-url-anchor:focus-within,
+.whit-url-anchor:focus-within {
+    color: white;
+    opacity: 0.9;
+    text-shadow: 2px 7px 5px rgba(0, 0, 0, 0.3), 0px -4px 10px rgba(255, 255, 255, 0.3);
+}
+.whit-url-anchor:focus-visible {
+    outline: blueviolet 2px solid;
+    outline-offset: 2px;
+}
+@media (max-width: 1250px) {
+    .whit-url-anchor {
+        font-size: 48px;
+        margin: 24px;
+    }
+}
+@media (max-width: 900px) {
+    .whit-url-anchor {
+        font-size: 24px;
+        margin: 12px;
+    }
+}

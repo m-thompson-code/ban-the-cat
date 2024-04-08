@@ -1,0 +1,209 @@
+@property --c{
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgba(160, 32, 240, 0.2);
+}
+@property --d{
+  syntax: '<color>';
+  inherits: false;
+  initial-value: rgba(255, 255, 90, 0.2);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+img {
+  pointer-events: none;
+  user-select: none;
+}
+
+.cat {
+  position: fixed;
+  transform: translate(-50%, -50%);
+  
+}
+
+.hammer {
+  position: fixed;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: auto;
+  rotate: 20deg;
+  transform-origin: center;
+}
+.hammer.active {
+  rotate: -15deg;
+}
+
+span {
+  font-size: 80px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 1250px) {
+  span {
+    font-size: 50px;
+  }
+}
+@media (max-width: 900px) {
+  span {
+    font-size: 24px;
+  }
+}
+
+@mixin get-light($color) {
+  background: conic-gradient(at 50% 110%, $color 0deg, transparent 7deg 353deg, $color 360deg);
+}
+
+.light {
+  pointer-events: none;
+  user-select: none;
+  rotate: 0deg;
+  transform-origin: center top;
+  position: fixed;
+  height: 200vh;
+  width: 30vw;
+  top: -30px;
+  .inner {
+    scale: 1 -1;
+    height: 100%;
+    width: 100%;
+    transition: all 1s;
+  }
+}
+.light-1 {
+  left: 0;
+  animation: 4s linear infinite rotate-1;
+  .inner {
+    background: conic-gradient(at 50% 110%, var(--c) 0deg, transparent 7deg 353deg, var(--c) 360deg);
+    animation: 4s linear infinite light-1;
+  }
+}
+.light-2 {
+  right: 0;
+  animation: 4s linear infinite rotate-2;
+  .inner {
+    background: conic-gradient(at 50% 110%, var(--d) 0deg, transparent 7deg 353deg, var(--d) 360deg);
+    animation: 4s linear infinite light-2;
+  }
+}
+
+@keyframes rotate-1 {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: -45deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+@keyframes rotate-2 {
+  0% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 45deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+@keyframes light-1 {
+  0% {
+    --c: rgba(255, 68, 51, 0.2);
+  }
+  50% {
+    --c: rgba(160, 32, 240, 0.2);
+  }
+  100% {
+    --c: rgba(255, 68, 51, 0.2);
+  }
+}
+@keyframes light-2 {
+  0% {
+    --d: rgba(160, 32, 240, 0.2);
+  }
+  50% {
+    --d: rgba(178, 216, 216, 0.2);
+  }
+  100% {
+    --d: rgba(160, 32, 240, 0.2);
+  }
+}
+
+@media (max-width: 1250px) {
+  span {
+    font-size: 75px;
+  }
+}
+@media (max-width: 900) {
+  span {
+    font-size: 50px;
+  }
+}
+
+.disco-font {
+  pointer-events: none;
+  user-select: none;
+  color:#242424;
+  
+  font-family: 'Oswald', sans-serif;
+  font-size: 30vh;
+  line-height: 1;
+  margin:0;
+  padding:0;
+  
+  transform: translateX(-50%) translateY(-50%) rotateX(25deg) rotateY(20deg) rotateZ(-3deg);  
+  
+  position: fixed;
+  left:50%;
+  top:50%;
+  
+  -webkit-animation: anim 3s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count:infinite;
+  
+  animation: anim 3s;
+  animation-timing-function: linear;
+  animation-iteration-count:infinite;
+}
+
+@-webkit-keyframes anim {
+    0%{text-shadow:-6px 4px 0px red;}
+    10% {text-shadow:4px -6px 0px green;}
+    20% {text-shadow:-9px 4px 0px blue;}
+    30% {text-shadow:4px -6px 0px yellow;}
+    40% {text-shadow:-8px 4px 0px orange;}
+    50% {text-shadow:4px 5px 0px purple;}
+    60% {text-shadow:-6px 4px 0px brown;}
+    70% {text-shadow:4px 7px 0px pink;}
+    80% {text-shadow:-9px -4px 0px lime;}
+    90% {text-shadow:4px -6px 0px cyan;}
+    100% {text-shadow:-9px 4px 0px teal;}
+} 
+
+@keyframes anim {
+    0%{text-shadow:-6px 4px 0px red;}
+    10% {text-shadow:4px -6px 0px green;}
+    20% {text-shadow:-9px 4px 0px blue;}
+    30% {text-shadow:4px -6px 0px yellow;}
+    40% {text-shadow:-8px 4px 0px orange;}
+    50% {text-shadow:4px 5px 0px purple;}
+    60% {text-shadow:-6px 4px 0px brown;}
+    70% {text-shadow:4px 7px 0px pink;}
+    80% {text-shadow:-9px -4px 0px lime;}
+    90% {text-shadow:4px -6px 0px cyan;}
+    100% {text-shadow:-9px 4px 0px teal;}
+} 
